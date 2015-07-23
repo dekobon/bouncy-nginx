@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+[ -e /run/nginx.pid ] && nginx -s reload
+[ ! -e /run/nginx.pid ] && sv restart nginx

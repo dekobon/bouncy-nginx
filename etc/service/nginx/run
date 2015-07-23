@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Make sure syslog is running before we start
+sv start syslog-ng || exit
+sleep 2
+
+PROXY_CONFIG="/etc/nginx/sites-available/default"
+
+if [ ! -f "$PROXY_CONFIG" ]; then
+        cp /etc/nginx/sites-available-template/default $PROXY_CONFIG
+fi
+
+chown -R www-data:www-data /usr/share/nginx/www
+exec /usr/sbin/nginx -c /etc/nginx/nginx.conf
