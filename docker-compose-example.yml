@@ -1,0 +1,13 @@
+# Example Docker compose file
+site:
+  image: tutum/hello-world:latest
+  expose:
+    - "80:80"
+  restart: always
+lb:
+  image: dekobon/bouncy-nginx:latest
+  ports:
+    - "80:80"
+  links:
+    - site
+  restart: always
