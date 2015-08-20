@@ -27,6 +27,6 @@ COPY usr/local/bin/bounce_nginx /usr/local/bin/bounce_nginx
 RUN chmod +x /usr/local/bin/bounce_nginx
 
 # Define mountable directories.
-VOLUME ["/etc/nginx/sites-available","/var/log/nginx"]
+#VOLUME ["/etc/nginx/sites-available","/var/log/nginx"]
 
 CMD ["/sbin/my_init"]
